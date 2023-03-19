@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Crypto Price Checker</title>
+    <link rel="stylesheet" href="Calc.css">
+  </head>
+  <body>
+    <header>
+      <h1 class="logo">Logo</h1>
+      <nav class="navigation">
+        <a href="index.php">Home</a>
+        <a href="Today.php">Today's Crypto Prices</a>
+        <a href="#">Portfolio</a>
+        <a href="Calc.html">Calculator</a>
+        <a href="watchlist.php">Watchlist</a>
+        <a href="login.php">Login</a>
+      </nav>
+      
+    </header>
+    <h1>Crypto Finance Calculators</h1>
+    <button onclick="toggleProfitCalculator()">Show Profit Calculator</button>
+    <button onclick="toggleAPYCalculator()">Show APY Calculator</button>
+    <section id="profit-calculator" style="display:none;">
+      <h1>Crypto Profit Calculator</h1>
+    <form>
+      <label for="crypto-select">Select a cryptocurrency:</label>
+      <select id="crypto-select">
+        <option value="">Select a cryptocurrency</option>
+        <!-- options will be dynamically added here -->
+      </select>
+      <br>
+      <label for="price-field">Price:</label>
+      <input type="text" id="price-field">
+    </div>
+    <div>
+        <label>Investment</label>
+        <input type="text" id="investment" placeholder="$00.00" required>
+    </div>
+    <div>
+        <label>Sell Price</label>
+        <input type="text" id="sell-price" placeholder="$00.00" required>
+    </div>
+    <div>
+        <label>Initial Fee</label>
+        <input type="text" id="initial-fee" placeholder="$00.00">
+    </div>
+    <div>
+        <label>Exit Fee</label>
+        <input type="text" id="exit-fee" placeholder="$00.00">
+    </div>
+    <label>Profit</label>
+    <input type="text" id="profit" placeholder="$00.00" readonly>
+    <button type="button" onclick="calculateProfit()">Calculate</button>
+  </section>
+</form>
+    </form>
+    
+<section id="apy-calculator" style="display:none;">
+  <h1>Crypto APY Calculator</h1>
+  <form>
+    <label for="initial deposit">Initial Deposit:</label>
+    <input type="text" id="price-field" placeholder = "$00.00" required>
+    <br>
+    <label for="Interest Rate">Interest Rate:</label>
+    <input type="text" id="Interest Rate" placeholder = "00.00%" required>
+    <br>
+    <label for="months">Months Held:</label>
+    <input type="text" id="months" placeholder="0" required>
+    <br>
+    <label for="Monthly Deposits">Monthly Deposits (Optional):</label>
+    <input type="text" id="Monthl Deposits" placeholder="$00.00">
+    <br>
+    <label for="Interest Accured">Interest Accured</label>
+    <input type="text" id="Interest Accured" placeholder="0" readonly>
+    <br>
+    <label for="apy">Total After Interest Period:</label>
+    <input type="text" id="apy" placeholder="00.00%" readonly>
+    <br>
+    <button type="button" onclick="calculateAPY()">Calculate</button>
+  </form>
+</section>
+
+    <script src="test.js"></script>
+  </body>
+</html>

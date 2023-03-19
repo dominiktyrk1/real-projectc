@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Profile Picture Upload</title>
+    <style>
+      label {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      /* Optional: style the file input button */
+      input[type="file"] {
+        border: none;
+        background-color: #e6e6e6;
+        padding: 5px 10px;
+        border-radius: 5px;
+      }
+
+      /* Optional: style the file input button on hover */
+      input[type="file"]:hover {
+        background-color: #d9d9d9;
+      }
+
+      /* Optional: style the file input button on focus */
+      input[type="file"]:focus {
+        outline: none;
+        box-shadow: 0 0 5px #999;
+      }
+
+      /* Optional: hide the default file input button */
+      input[type="file"]::-webkit-file-upload-button {
+        display: none;
+      }
+
+      /* Optional: style a custom file input button */
+      button[type="button"] {
+        border: none;
+        background-color: #e6e6e6;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      /* Optional: style a custom file input button on hover */
+      button[type="button"]:hover {
+        background-color: #d9d9d9;
+      }
+
+      /* Optional: style a custom file input button on focus */
+      button[type="button"]:focus {
+        outline: none;
+        box-shadow: 0 0 5px #999;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <label for="profile-pic">Profile Picture:</label>
+      <input type="file" id="profile-pic" name="profile-pic">
+      <button type="submit">Save</button>
+    </form>
+    <script>
+      const form = document.querySelector('form');
+      const fileInput = document.querySelector('#profile-pic');
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append('profile-pic', fileInput.files[0]);
+        fetch('/api/upload-profile-pic', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.text())
+        .then(result => {
+          console.log('Success:', result);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
+      });
+    </script>
+  </body>
+</html>
